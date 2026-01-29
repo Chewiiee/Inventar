@@ -1,0 +1,19 @@
+https://vm249139.uni-regensburg.de,
+https://vm249139.uni-r.de,
+https://vm249139.ur.de {
+	# Serve files from /var/www/html
+	root * /var/www/html
+
+	tls {
+		ca https://acme.ur.de/directory
+	}
+	
+	# Enable file server
+	file_server
+	
+	# Enable HTTP Basic Authentication
+	basicauth {
+		example $2a$14$upDKAEQcbXaFNdHphIbyGubXoejIDXZCQ1L/1kXO9L28nvjKjsIWq
+	}	
+}
+
