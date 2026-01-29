@@ -10,13 +10,12 @@ def clear_directory(target_dir):
     for file in os.listdir(target_dir):
         os.remove(os.path.join(target_dir, file))
 
-
 if __name__ == "__main__":
     working_dir = "/Users/matthiasfruth/projects/inventar"
     target_ssh_user = "root"
-    target_hostmane = "vm249139"
-    target_path = "/var/www/html/"
-    target_domain = "https://vm249139.ur.de"
+    target_hostmane = "pi5"
+    target_path = "/var/www/html/inventar"
+    target_domain = "https://inventar.dfhobbit.de"
 
     excel_file = os.path.join(working_dir, "inventar.xlsm")
     sheet_name = "inventar_sheet"
@@ -74,12 +73,15 @@ if __name__ == "__main__":
         f"{html_output_dir}/",
         f"{target_ssh_user}@{target_hostmane}:{target_path}"
     ]
-    subprocess.run(cmd, check=True)
+    out = subprocess.run(cmd, check=True)
+    out.check_returncode()
+    
 
     # Adapt the correct permissions on the target machine
     cmd = [
         "ssh",
         f"{target_ssh_user}@{target_hostmane}",
-        "chown -R caddy:caddy /var/www/html"
+        f"chown -R caddy:caddy {target_path}"
     ]
-    subprocess.run(cmd, check=True)
+    out = subprocess.run(cmd, check=True)
+    out.check_returncode()

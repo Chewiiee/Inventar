@@ -1,0 +1,13 @@
+https://inventar.dfhobbit.de {
+	# Serve files from /var/www/html
+	root * /var/www/html/inventar
+
+	# Enable file server
+	file_server
+	
+	# Enable HTTP Basic Authentication
+	basicauth {
+		example $2a$14$upDKAEQcbXaFNdHphIbyGubXoejIDXZCQ1L/1kXO9L28nvjKjsIWq
+	}	
+}
+
