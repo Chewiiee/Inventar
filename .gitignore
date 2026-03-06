@@ -3,3 +3,4 @@
 /**/*.png
 .env
 /html/
+generate.log

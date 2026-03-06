@@ -2,11 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ zimmer }} - {{ geraet }}</title>
+    <title>{% if item.Bezeichnung %}{{ item.Bezeichnung }}{% endif %} - {% if item.Standort %}{{ item.Standort }}{% endif %}</title>
 </head>
 <body>
-    <h1>Zimmer: {{ zimmer }}</h1>
-    <p>Gerät: {{ geraet }}</p>
+    <h1>Inventarnummer: {{ item.Inventarnummer }}</h1>
+ 
+    <h2>Geräte-Details</h2>
+    <ul>
+        {% if item.SN %}
+        <li><strong>Seriennummer (SN):</strong> {{ item.SN }}</li>
+        {% endif %}
+        
+        {% if item.Bezeichnung %}
+        <li><strong>Bezeichnung:</strong> {{ item.Bezeichnung }}</li>
+        {% endif %}
+        
+        {% if item.Kompatibilität %}
+        <li><strong>Kompatibilität:</strong> {{ item.Kompatibilität }}</li>
+        {% endif %}
+        
+        {% if item.Standort %}
+        <li><strong>Standort:</strong> {{ item.Standort }}</li>
+        {% endif %}
+        
+        {% if item['In Nutzung'] %}
+        <li><strong>In Nutzung:</strong> {{ item['In Nutzung'] }}</li>
+        {% endif %}
+        
+        {% if item['Letzter Wartungstermin'] %}
+        <li><strong>Letzter Wartungstermin:</strong> {{ item['Letzter Wartungstermin'] }}</li>
+        {% endif %}
+        
+        {% if item['Nächster Wartungstermin'] %}
+        <li><strong>Nächster Wartungstermin:</strong> {{ item['Nächster Wartungstermin'] }}</li>
+        {% endif %}
+        
+        {% if item.Firma %}
+        <li><strong>Firma:</strong> {{ item.Firma }}</li>
+        {% endif %}
+    </ul>
+    
+    {% if image_path %}
+    <h2>Bild</h2>
+    <img src="{{ image_path }}" alt="{% if item.Bezeichnung %}{{ item.Bezeichnung }}{% else %}Bild{% endif %}" style="max-width: 500px; height: auto;">
+    {% endif %}
 </body>
 </html>
 
