@@ -58,7 +58,7 @@ Der Public Key `id_ed25519.pub` muss auf dem Server in die `~/.ssh/authorized_ke
 
 Navigieren in den Ordner `Inventar` und erstelle in Python VirtualEnvironment mit dem Befehl `python -m venv venv`.
 
-Aktiviere das Virtual Environment und installiere die notwendigen Dependencies `\venv\Scripts\activate`
+Aktiviere das Virtual Environment und installiere die notwendigen Dependencies `.\venv\Scripts\activate`
 `pip install -r requirements.txt`
 
 ## Enviroment konfigurieren
@@ -73,14 +73,7 @@ Die Excel Datei `inventar_template.xlsm` auf den Desktop kopieren und zu `invent
 
 Dann im Reiter `Developer/Entwickler` rechts auf 'VBAProject (inventar.xlsx)' klicken, und Einfügen -> Modul auswählen.
 
-Im Module den `basePath` anpassen.\
-
-Momentan unterstützte Spalten:
-
-- Zimmer
-- Gerät 
-
-Das 'excel_sheet' muss inventar_sheet heißen.
+Im Module den `basePath` anpassen
 
 Beim click auf 'veröffentlichen' werden auf dem Desktop nun die Ordner `html` und `qrcodes` erstellt und die html Dateien auf dem Server veröffentlicht.
 
